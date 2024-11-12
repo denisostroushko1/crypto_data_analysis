@@ -4,10 +4,10 @@ rm(list = ls())
 ########################################################################
 
 source('Master Packages.R')
-source(paste0(getwd(), "/trading/Hourly BTC/01 Load Data.R"))
+source(paste0(getwd(), "/trading/Hourly ETH/01 Load Data.R"))
 
 title_var = "Simple RSI Strategy"
-this_project_path = "trading/Hourly BTC"
+this_project_path = "trading/Hourly ETH"
 
 ########################################################################
 
@@ -50,26 +50,26 @@ all_data_f <- function(N_synth_datasets){
   ## upward trending markets 
   upward_1 <- 
     df %>% 
-    filter(datetime >= as.Date("2015-09-01") & 
-             datetime <= as.Date("2017-12-15")) %>% 
+    filter(datetime >= as.Date("2016-12-15") & 
+             datetime <= as.Date("2018-01-15")) %>% 
     select(datetime, close)
   
   upward_2 <- 
     df %>% 
-    filter(datetime >= as.Date("2019-03-01") & 
+    filter(datetime >= as.Date("2018-12-10") & 
              datetime <= as.Date("2019-07-01")) %>% 
     select(datetime, close)
   
   upward_3 <- 
     df %>% 
-    filter(datetime >= as.Date("2020-10-01") & 
-             datetime <= as.Date("2021-04-01")) %>% 
+    filter(datetime >= as.Date("2020-06-15") & 
+             datetime <= as.Date("2021-05-10")) %>% 
     select(datetime, close)
   
   upward_4 <- 
     df %>% 
-    filter(datetime >= as.Date("2023-01-01")& 
-             datetime <= as.Date("2024-11-11") ) %>% 
+    filter(datetime >= as.Date("2022-11-15")& 
+             datetime <= as.Date("2024-03-11") ) %>% 
     select(datetime, close)
   
   ## sample volatility 
@@ -101,7 +101,7 @@ all_data_f <- function(N_synth_datasets){
   ## downward trending markets
   downward_1 <- 
     df %>% 
-    filter(datetime >= as.Date("2017-12-16") & 
+    filter(datetime >= as.Date("2018-01-15") & 
              datetime <= as.Date("2019-01-01") ) %>% 
     select(datetime, close)
   
@@ -211,7 +211,10 @@ source(
 
 ###### 
 # remove by products of rendering quatro document 
-# 
+
+# TURNS OUT that removing these folder completely destroys HTML file presentation. 
+# so, they must be kept here 
+
 # remove_folder <- paste0( title_var, " Summary_files")
 # remove_fodler2 <- gsub(pattern = " ", x = remove_folder, replacement = "-")
 # 

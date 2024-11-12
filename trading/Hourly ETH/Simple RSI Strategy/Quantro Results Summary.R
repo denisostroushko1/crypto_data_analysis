@@ -230,6 +230,7 @@ table_summary(down_synth_summary_1) %>% kable(., digits = 2)
 
 
 # Write the content to a .qmd file
+
 doc <- paste0("./", this_project_path,"/", title_var, "/", title_var, " Summary.qmd")
 writeLines(qmd_content, doc)
 
